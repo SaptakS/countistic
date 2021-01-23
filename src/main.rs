@@ -62,7 +62,7 @@ impl CountStatistics {
     fn count_path_visits(mut statistics: HashMap<String, u16>, path: String, status: &str) -> HashMap<String, u16> {
         match status.parse::<i32>().unwrap() {
             200 => {
-                let count = statistics.entry(path).or_insert(1);
+                let count = statistics.entry(path).or_insert(0);
                 *count += 1;
             },
             _ => {}
